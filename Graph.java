@@ -31,13 +31,14 @@ public class Graph<T> {
         }
         visited.add(v); // запоминаем вершину которую посетили
 
+        boolean result = false;
         for (Vertex a : v.getAdjacent()) {
             if (!visited.contains(a)) {
-                return dfsFind(a, target, visited);
+                result = result || dfsFind(a, target, visited);
             }
         }
 
-        return false; // ничего не нашли
+        return result;
     }
 
 }
